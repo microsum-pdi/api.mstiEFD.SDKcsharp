@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# Visual Studio 2015 cache/options directory
+.vs/
+
+/api.mstiEFD.SDK.csharp/api.mstiEFD.SDK.csharp/bin/Debug/net6.0
+/api.mstiEFD.SDK.csharp/api.mstiEFD.SDK.csharp/obj
+/api.mstiEFD.SDK.csharp/api.mstiEFD.SDK.csharp.Tests/bin/Debug/net6.0
+/api.mstiEFD.SDK.csharp/api.mstiEFD.SDK.csharp.Tests/obj
+/api.mstiEFD.SDKcsharp.Tests/bin/Debug/net6.0
+/api.mstiEFD.SDKcsharp.Tests/obj
+/api.mstiEFD.SDK.csharp/bin/Debug/net6.0
+/api.mstiEFD.SDK.csharp/obj
+/.vs/api.mstiEFD.SDK.csharp/DesignTimeBuild/.dtbcache.v2
+/api.mstiEFD.SDK.csharp/bin/Release/net6.0
+/api.mstiEFD.SDKcsharp.Tests/bin/Release/net6.0/CoverletSourceRootsMapping
+/api.mstiEFD.SDKcsharp/obj
+/api.mstiEFD.SDKcsharp/bin/Debug/net6.0
