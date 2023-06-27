@@ -1,20 +1,68 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## SDK C# para integração com a ami.EFD ##
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+#### 1 - Escriturações Implementadas
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+- EFD ICMS IPI (SPED Fiscal):
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+A Escrituração Fiscal Digital - EFD é um arquivo digital, que se constitui de um conjunto de escriturações de documentos fiscais e de outras informações de interesse dos Fiscos das unidades federadas e da Secretaria da Receita Federal do Brasil, bem como de registros de apuração de impostos referentes às operações e prestações praticadas pelo contribuinte.
+Este arquivo deverá ser assinado digitalmente e transmitido, via Internet, ao ambiente Sped.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- EFD Contribuições (SPED PIS/COFINS):
+
+A EFD-Contribuições trata de arquivo digital instituído no Sistema Publico de Escrituração Digital – SPED, a ser utilizado pelas pessoas jurídicas de direito privado na escrituração da Contribuição para o PIS/Pasep e da Cofins, nos regimes de apuração não-cumulativo e/ou cumulativo, com base no conjunto de documentos e operações representativos das receitas auferidas, bem como dos custos, despesas, encargos e aquisições geradores de créditos da não cumulatividade.
+
+
+#### 2 - Dependências
+
+- Dotnet 6.0
+
+------------
+
+
+[TOC]
+
+#### 3 - Configuração do ambiente
+
+Antes de executar qualquer operação com a API ami.EFD. É necessário executar a configuração do ambiente.
+
+Caso contrário, ao tentar consumir qualquer um dos serviços, será lançada a exceção:
+
+**Necessário executar a configuração do ambiente (ConfigAmbienteSDKServices.ConfigurarAmbiente(new ConfigAmbienteSDK())), antes de comunicar com a API ami.EFD.**
+
+Existem duas configurações que devem ser executadas para utilizar a api.EFD, utilizando este SDK:
+
+**3.1- Configuração do ambiente de execução do SDK**
+
+Este serviço é usado para configurar o token da empresa e a url onde a ami.EFD está sendo executada.
+
+```csharp
+ConfigAmbienteSDKServices.ConfigurarAmbiente(new ConfigAmbienteSDK() 
+{ 
+    Token = "Informe_o_token_da_empresa", URL = "informe_a_url_da_ami.dfe"
+});
+```
+
+#### 4 - Envio de movimentações
+
+Para que a API consiga gerar as escriturações, é necessário que o sistema usuário envie os seguintes blocos de informações:
+
+**4.1- Notas Fiscais (NF-e e NFC-e)**
+
+Movimentações relacionadas às notas fiscais emitidas, ou cadastradas do sistema usuário da API.
+
+Estas movimentações devem ser enviadas para o seguinte serviço:
+
+```
+SDKServices.NotaFiscal.Enviar(new NotaFiscalVM(){...});
+```
+
+**4.2- Inventário**
+
+Informação das quantidades em estoque dos produtos cadastrados no sistema usuário.
+
+Estas informações devem ser enviadas para o seguinte serviço:
+
+```
+SDKServices.Inventario.Enviar(new InventarioVM(){...});
+```
+
