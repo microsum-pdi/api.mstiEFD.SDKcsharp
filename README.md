@@ -77,7 +77,7 @@ Movimentações relacionadas às notas fiscais emitidas, ou cadastradas do siste
 
 Estas movimentações devem ser enviadas para o seguinte serviço:
 
-```
+```csharp
 EfdResultVM<string> respNotaFiscal = await new EfdSdkServices(
     new EfdConfigAmbienteSDK() 
     {
@@ -95,7 +95,7 @@ Informação das quantidades em estoque dos produtos cadastrados no sistema usu�
 
 Estas informações devem ser enviadas para o seguinte serviço:
 
-```
+```csharp
 EfdResultVM<string> resp = await new EfdSdkServices(
     new EfdConfigAmbienteSDK()
     {
@@ -115,7 +115,7 @@ EfdResultVM<string> resp = await new EfdSdkServices(
 
 Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do ICMS / IPI.
 
-```
+```csharp
 string respEfdIcmsIpi = await new EfdSdkServices(
     new EfdConfigAmbienteSDK()
     {
@@ -131,7 +131,7 @@ string respEfdIcmsIpi = await new EfdSdkServices(
 
 Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do PIS / COFINS.
 
-```
+```csharp
 string respEfdContribuicoes = await new EfdSdkServices(
     new EfdConfigAmbienteSDK()
     {
