@@ -20,15 +20,33 @@ namespace api.mstiEFD.SDKcsharp.Services
         /// Envia uma nota fiscal (NF-e ou NFC-e) para a fila, para ser salva no banco de dados
         /// </summary>
         /// <returns></returns>
-        public async Task<EfdResultVM<string>> Add([FromBody] NotaFiscalVM venda)
+        public async Task<EfdResultVM<string>> Add([FromBody] NotaFiscalVM notaFiscal)
         {
+            #region Validações
+            // Validações da estrutura da informação recebida na requisição
+            if (notaFiscal == null)
+            {
+                return new EfdResultVM<string>()
+                    .WithStatusCode(EHttpStatusCode.BadRequest)
+                    .WithMessage(EfdResources.NotaFiscalInvalida);
+            }
+
+            // Validações de preenchimento
+            if (notaFiscal.Invalid)
+            {
+                return new EfdResultVM<string>()
+                    .WithStatusCode(EHttpStatusCode.BadRequest)
+                    .WithMessages(notaFiscal.NotificationsToList());
+            }
+            #endregion
+
             string url = configAmbienteSDK.URL + "/api/notasfiscais/";
 
             EfdResultVM<string> result = new();
 
             try
             {
-                HttpResponseMessage response = await ExecutaPost(venda, url);
+                HttpResponseMessage response = await ExecutaPost(notaFiscal, url);
 
                 var resposta = JsonConvert.DeserializeObject<EfdResultVM<string>>(await response.Content.ReadAsStringAsync());
 

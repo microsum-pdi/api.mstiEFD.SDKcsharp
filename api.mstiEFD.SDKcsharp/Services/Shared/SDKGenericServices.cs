@@ -2,7 +2,6 @@
 using api.mstiEFD.SDKcsharp.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace api.mstiEFD.SDKcsharp.Services.Shared
@@ -81,7 +80,7 @@ namespace api.mstiEFD.SDKcsharp.Services.Shared
                string.IsNullOrEmpty(configAmbienteSDK?.Token) ||
                string.IsNullOrEmpty(configAmbienteSDK?.URL))
             {
-                throw new Exception("Necessário executar a configuração do ambiente (ConfigAmbienteSDKServices.ConfigurarAmbiente(new ConfigAmbienteSDK())), antes de comunicar com a API ami.TAX.");
+                throw new Exception("Necessário executar a configuração do ambiente (ConfigAmbienteSDKServices.ConfigurarAmbiente(new ConfigAmbienteSDK())), antes de comunicar com a API ami.EFD.");
             }
         }
     }

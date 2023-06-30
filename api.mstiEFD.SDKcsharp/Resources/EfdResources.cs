@@ -3,6 +3,7 @@
     public class EfdResources
     {
         //Validação da atualização de estoque dos produtos
+        public const string EstoqueInvalido = "Deve ser enviado um objeto no formato [EstoqueVM]";
         public const string EstoqueQuantidadeDeItensInvalida = "Deve ser enviada uma lista de produtos, com no máximo 200 itens";
         public const string EstoqueAliquotaInvalida = "A alíquota padrão do ICMS do item deve ser maior ou igual a 0";
         public const string EstoqueValorIRInvalido = "O valor do item para efeitos do Imposto de Renda, deve ser maior ou igual a 0";
@@ -46,6 +47,7 @@
         public const string ClienteBdLoginNaoConfigurado = "Nesessário configurar o usuário (SQLServer:Usuario) e senha (SQLServer:Senha) do banco de dados no arquivo 'appsettings.json'";
 
         //Mensagens das operações com a nota fiscal
+        public const string NotaFiscalInvalida = "Deve ser enviado um objeto no formato [NotaFiscalVM]";
         public const string NotaFiscalErroAoSalvarNoBanco = "Erro ao salvar nova fiscal no banco de dados";
         public const string NotaFiscalOperacaoInvalida = "A operação deve conter um dos seguintes valores: ";
         public const string NotaFiscalTipoEmissaoInvalido = "O tipo de emissão deve conter um dos seguintes valores: ";

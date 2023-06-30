@@ -43,7 +43,7 @@ namespace api.mstiEFD.SDKcsharp.Services
             catch (Exception ex)
             {
                 string DetalheErro = "";
-                DetalheErro += "Erro ao configurar o ambiente para uma conexão com a API.TAX." + " - " + ex.GetAllInnerExceptionMessage() + "\n";
+                DetalheErro += "Erro ao configurar o ambiente para uma conexão com a API.EFD." + " - " + ex.GetAllInnerExceptionMessage() + "\n";
                 DetalheErro += "Url: " + url + "\n";
 
                 throw new Exception(DetalheErro);

@@ -22,6 +22,24 @@ namespace api.mstiEFD.SDKcsharp.Services
         /// <returns></returns>
         public async Task<EfdResultVM<string>> Atualizar([FromBody] EstoqueVM produtos)
         {
+            #region Validações
+            // Validações da estrutura da informação recebida na requisição
+            if (produtos == null)
+            {
+                return new EfdResultVM<string>()
+                    .WithStatusCode(EHttpStatusCode.BadRequest)
+                    .WithMessage(EfdResources.EstoqueInvalido);
+            }
+
+            // Validações de preenchimento
+            if (produtos.Invalid)
+            {
+                return new EfdResultVM<string>()
+                    .WithStatusCode(EHttpStatusCode.BadRequest)
+                    .WithMessages(produtos.NotificationsToList());
+            }
+            #endregion
+
             string url = configAmbienteSDK.URL + "/api/estoque/";
 
             EfdResultVM<string> result = new();
