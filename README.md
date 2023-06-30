@@ -89,7 +89,7 @@ EfdResultVM<string> respNotaFiscal = await new EfdSdkServices(
 );
 ```
 
-**4.2- Inventário**
+**5.2- Inventário**
 
 Informação das quantidades em estoque dos produtos cadastrados no sistema usuário. Estas informações são usadas para gerar o os registros do Bloco H, com as informações do Inventário.
 
