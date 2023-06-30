@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\api.mstiEFD.SDKcsharp\api.mstiEFD.SDKcsharp.csproj" />
+  </ItemGroup>
+
 </Project>

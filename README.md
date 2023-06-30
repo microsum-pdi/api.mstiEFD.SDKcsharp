@@ -2,15 +2,16 @@
 
 #### 1 - Escriturações Implementadas
 
-- EFD ICMS IPI (SPED Fiscal):
+- **EFD ICMS IPI (SPED Fiscal):**
 
 A Escrituração Fiscal Digital - EFD é um arquivo digital, que se constitui de um conjunto de escriturações de documentos fiscais e de outras informações de interesse dos Fiscos das unidades federadas e da Secretaria da Receita Federal do Brasil, bem como de registros de apuração de impostos referentes às operações e prestações praticadas pelo contribuinte.
 Este arquivo deverá ser assinado digitalmente e transmitido, via Internet, ao ambiente Sped.
 
-- EFD Contribuições (SPED PIS/COFINS):
+- **EFD Contribuições (SPED PIS/COFINS):**
 
 A EFD-Contribuições trata de arquivo digital instituído no Sistema Publico de Escrituração Digital – SPED, a ser utilizado pelas pessoas jurídicas de direito privado na escrituração da Contribuição para o PIS/Pasep e da Cofins, nos regimes de apuração não-cumulativo e/ou cumulativo, com base no conjunto de documentos e operações representativos das receitas auferidas, bem como dos custos, despesas, encargos e aquisições geradores de créditos da não cumulatividade.
 
+------------
 
 #### 2 - Dependências
 
@@ -20,6 +21,9 @@ A EFD-Contribuições trata de arquivo digital instituído no Sistema Publico de
 
 
 [TOC]
+
+------------
+
 
 #### 3 - Configuração do ambiente
 
@@ -36,11 +40,18 @@ Existem duas configurações que devem ser executadas para utilizar a api.EFD, u
 Este serviço é usado para configurar o token da empresa e a url onde a ami.EFD está sendo executada.
 
 ```csharp
-ConfigAmbienteSDKServices.ConfigurarAmbiente(new ConfigAmbienteSDK() 
-{ 
-    Token = "Informe_o_token_da_empresa", URL = "informe_a_url_da_ami.dfe"
+newConfigAmbienteSDKServices()
+{
+	Token = "Informe_o_token_da_empresa",
+	URL = "informe_a_url_da_ami.dfe"
 });
 ```
+
+Este objeto de configuração, deve ser enviado, sempre que for acionado algum método do SDK.
+
+Alguns exemplos serão citados mais abaixo.
+
+------------
 
 #### 4 - Envio de movimentações
 
@@ -53,16 +64,67 @@ Movimentações relacionadas às notas fiscais emitidas, ou cadastradas do siste
 Estas movimentações devem ser enviadas para o seguinte serviço:
 
 ```
-SDKServices.NotaFiscal.Enviar(new NotaFiscalVM(){...});
+EfdResultVM<string> respNotaFiscal = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK() 
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api" 
+    }
+).EfdNotasFiscaisServices().Enviar(
+    new NotaFiscalVM() { }
+);
 ```
 
 **4.2- Inventário**
 
-Informação das quantidades em estoque dos produtos cadastrados no sistema usuário.
+Informação das quantidades em estoque dos produtos cadastrados no sistema usuário. Estas informações são usadas para gerar o os registros do Bloco H, com as informações do Inventário.
 
 Estas informações devem ser enviadas para o seguinte serviço:
 
 ```
-SDKServices.Inventario.Enviar(new InventarioVM(){...});
+EfdResultVM<string> resp = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK()
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api"
+    }
+).EfdInventarioServices().Atualizar(
+    new EstoqueVM() { }
+);
 ```
 
+------------
+
+#### 5 - Geração das escriturações
+
+**5.1- EFD ICMS IPI (SPED Fiscal)**
+
+Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do ICMS / IPI.
+
+```
+string respEfdIcmsIpi = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK()
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api"
+    }
+).EfdIcmsIpiServices().GerarArquivo(
+    new ConfigArquivoEFD_ICMS_IPI_VM() { }
+);
+```
+
+**5.2- EFD Contribuições (SPED PIS/COFINS)**
+
+Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do PIS / COFINS.
+
+```
+string respEfdContribuicoes = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK()
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api"
+    }
+).EFDContribuicoesServices().GerarArquivo(
+    new ConfigArquivoContribuicoesVM() { }
+);
+```

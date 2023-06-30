@@ -1,14 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Docs\" />
+		<Folder Include="Interfaces\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Flunt" Version="2.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="NJsonSchema" Version="10.9.0" />
+	</ItemGroup>
 
 </Project>
