@@ -19,11 +19,9 @@ A EFD-Contribuições trata de arquivo digital instituído no Sistema Publico de
 
 ------------
 
-
 [TOC]
 
 ------------
-
 
 #### 3 - Configuração do ambiente
 
@@ -53,11 +51,27 @@ Alguns exemplos serão citados mais abaixo.
 
 ------------
 
-#### 4 - Envio de movimentações
+#### 4 - Testando a integração com a amiEFD
+
+Este serviço, deve ser utilizado para testar configuração do ambiente, relativo à conexão com a API.
+
+```csharp
+EfdResultVM<string> respHealtCheck = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK()
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api"
+    }
+).EfdHealthServices().HealthCheck();
+```
+
+------------
+
+#### 5 - Envio de movimentações
 
 Para que a API consiga gerar as escriturações, é necessário que o sistema usuário envie os seguintes blocos de informações:
 
-**4.1- Notas Fiscais (NF-e e NFC-e)**
+**5.1- Notas Fiscais (NF-e e NFC-e)**
 
 Movimentações relacionadas às notas fiscais emitidas, ou cadastradas do sistema usuário da API.
 
@@ -95,9 +109,9 @@ EfdResultVM<string> resp = await new EfdSdkServices(
 
 ------------
 
-#### 5 - Geração das escriturações
+#### 6 - Geração das escriturações
 
-**5.1- EFD ICMS IPI (SPED Fiscal)**
+**6.1- EFD ICMS IPI (SPED Fiscal)**
 
 Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do ICMS / IPI.
 
@@ -113,7 +127,7 @@ string respEfdIcmsIpi = await new EfdSdkServices(
 );
 ```
 
-**5.2- EFD Contribuições (SPED PIS/COFINS)**
+**6.2- EFD Contribuições (SPED PIS/COFINS)**
 
 Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do PIS / COFINS.
 
