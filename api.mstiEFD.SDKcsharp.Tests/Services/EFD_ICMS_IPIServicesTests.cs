@@ -1,5 +1,6 @@
 ﻿using api.mstiEFD.SDKcsharp.Services;
 using api.mstiEFD.SDKcsharp.ViewModels;
+using api.mstiEFD.SDKcsharp.Resources;
 
 namespace api.mstiEFD.SDKcsharp.Tests.Services
 {
@@ -20,10 +21,10 @@ namespace api.mstiEFD.SDKcsharp.Tests.Services
             {
                 DataInicial = PrimeiroDiaDoMesAtual(),
                 DataFinal = UltimoDiaDoMesAtual(),
-                TipoAtividade = "0",
-                ClassificacaoContribuinte = "09",
-                Perfil = "A",
-                Finalidade = 0,
+                TipoAtividade = Constantes.IND_ATIV_INDUSTRIAL_OU_EQUIPARADO,
+                ClassificacaoContribuinte = Constantes.CLAS_ESTAB_IND_OUTROS,
+                Perfil = Constantes.PERFIL_A,
+                Finalidade = Constantes.COD_FIN_ARQUIVO_ORIGINAL,
                 AproveitarCreditoEntradas = true,
                 BlocoK = new()
                 {

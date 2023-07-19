@@ -2,11 +2,61 @@
 {
     public static class Constantes
     {
-        public const string CANCELADO = "02";
+        public const string COD_SIT_DOCUMENTO_REGULAR = "00";
+        public const string COD_SIT_ESCRITURACAO_EXTEMPORÂNEA_DE_DOCUMENTO_REGULAR = "01";
+        public const string COD_SIT_DOCUMENTO_CANCELADO = "02";
+        public const string COD_SIT_ESCRITURACAO_EXTEMPORÂNEA_DE_DOCUMENTO_CANCELADO = "03";
+        public const string COD_SIT_NFE_NFCE_OU_CTE__DENEGADO = "04";
+        public const string COD_SIT_NFE_NFCE_OU_CTE__NUMERACAO_INUTILIZADA = "05";
+        public const string COD_SIT_DOCUMENTO_FISCAL_COMPLEMENTAR = "06";
+        public const string COD_SIT_ESCRITURACAO_EXTEMPORÂNEA_DE_DOCUMENTO_COMPLEMENTAR = "07";
+        public const string COD_SIT_DOCUMENTO_FISCAL_EMITIDO_COM_BASE_EM_REGIME_ESPECIAL_OU_NORMA_ESPECIFICA = "08";
+
         public const string NFE = "55";
         public const string NFCE = "65";
         public const string ENTRADA = "0";
         public const string SAIDA = "1";
+
+        public const string IND_ATIV_INDUSTRIAL_OU_EQUIPARADO = "0";
+        public const string IND_ATIV_OUTROS = "1";
+
+        public const int COD_FIN_ARQUIVO_ORIGINAL = 0;
+        public const int COD_FIN_ARQUIVO_SUBSTITUTO = 1;
+
+        public const string FIN_NFE_NORMAL = "1";
+        public const string FIN_NFE_COMPLEMENTAR = "2";
+        public const string FIN_NFE_AJUSTE = "3";
+        public const string FIN_NFE_DEVOLUCAO = "4";
+
+        public const string CLAS_ESTAB_IND_INDUSTRIAL_TRANSFORMACAO = "00";
+        public const string CLAS_ESTAB_IND_INDUSTRIAL_BENEFICIAMENTO = "01";
+        public const string CLAS_ESTAB_IND_INDUSTRIAL_MONTAGEM = "02";
+        public const string CLAS_ESTAB_IND_INDUSTRIAL_ACONDICIONAMENTO_REACONDICIONAMENTO = "03";
+        public const string CLAS_ESTAB_IND_INDUSTRIAL_RENOVAÇÃO_RECONDICIONAMENTO = "04";
+        public const string CLAS_ESTAB_IND_EQUIPARADO_INDUSTRIAL_POR_OPCAO = "05";
+        public const string CLAS_ESTAB_IND_EQUIPARADO_INDUSTRIAL_IMPORTACAO_DIRETA = "06";
+        public const string CLAS_ESTAB_IND_EQUIPARADO_INDUSTRIAL_POR_LEI_ESPECÍFICA = "07";
+        public const string CLAS_ESTAB_IND_EQUIPARADO_INDUSTRIAL_NAO_ENQUADRADO_NOS_CODIGOS_05_06_07 = "08";
+        public const string CLAS_ESTAB_IND_OUTROS = "09";
+
+        public const string PERFIL_A = "A";
+        public const string PERFIL_B = "B";
+        public const string PERFIL_C = "C";
+
+        public const string COD_MOD_TRANSPORTE_NOTA_FISCAL_DE_SERVIÇO_DE_TRANSPORTE = "07";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_RODOVIARIO_CARGAS = "08";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_CARGAS_AVULSO = "8B";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_AQUAVIARIO_CARGAS = "09";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_FERROVIARIO_CARGAS = "11";
+        public const string COD_MOD_TRANSPORTE_DESPACHO_TRANSPORTE = "17";
+        public const string COD_MOD_TRANSPORTE_AUTORIZACAO_CARREGAMENTO_E_TRANSPORTE = "24";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_MULTIMODAL_CARGAS = "26";
+        public const string COD_MOD_TRANSPORTE_NOTA_FISCAL_TRANSPORTE_FERROVIARIO_CARGAS = "27";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_ELETRONICO_CTE = "57";
+        public const string COD_MOD_TRANSPORTE_CONHECIMENTO_TRANSPORTE_ELETRONICO_PARA_OUTROS_SERVICOS_CTE_OS = "67";
+
+        public const string IND_OPER_ENTRADA = "0";
+        public const string IND_OPER_SAIDA = "1";
 
         /// <summary> 
         /// CSOSN - Código de Situação da Operação no Simples Nacional

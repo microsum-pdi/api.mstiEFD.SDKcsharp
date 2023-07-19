@@ -1,4 +1,5 @@
-﻿using api.mstiEFD.SDKcsharp.Services;
+﻿using api.mstiEFD.SDKcsharp.Resources;
+using api.mstiEFD.SDKcsharp.Services;
 using api.mstiEFD.SDKcsharp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace api.mstiEFD.SDKcsharp.Tests.Services
         {
             NotaFiscalVM notaVM = new()
             {
-                Operacao = "0",
+                Operacao = Constantes.IND_OPER_ENTRADA,
                 TipoEmissao = "1",
                 Finalidade = "1",
                 NaturezaOperacao = new()
@@ -48,7 +49,7 @@ namespace api.mstiEFD.SDKcsharp.Tests.Services
                     EnderecoComplemento = "90",
                     EnderecoBairro = "Setor Sul"
                 },
-                ModeloDocumento = "55",
+                ModeloDocumento = Constantes.NFE,
                 Situacao = "01",
                 Serie = 1,
                 Numero = 1,
