@@ -34,7 +34,7 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
             ExecutaValidacoes();
         }
 
-        private void ExecutaValidacoes()
+        public void ExecutaValidacoes()
         {
             if (string.IsNullOrEmpty(Nome))
             {

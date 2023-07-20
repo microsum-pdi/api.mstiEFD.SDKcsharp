@@ -1,5 +1,6 @@
 ﻿using api.mstiEFD.SDKcsharp.Services;
 using api.mstiEFD.SDKcsharp.ViewModels;
+using api.mstiEFD.SDKcsharp.ViewModels.Estoque;
 
 namespace api.mstiEFD.SDKcsharp.Tests.Services
 {

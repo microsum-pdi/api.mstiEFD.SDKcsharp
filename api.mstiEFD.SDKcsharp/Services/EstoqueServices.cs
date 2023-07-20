@@ -2,6 +2,7 @@
 using api.mstiEFD.SDKcsharp.Extensions;
 using api.mstiEFD.SDKcsharp.Services.Shared;
 using api.mstiEFD.SDKcsharp.ViewModels;
+using api.mstiEFD.SDKcsharp.ViewModels.Estoque;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -30,6 +31,8 @@ namespace api.mstiEFD.SDKcsharp.Services
                     .WithStatusCode(EHttpStatusCode.BadRequest)
                     .WithMessage(EfdResources.EstoqueInvalido);
             }
+
+            produtos.ExecutaValidacoes();
 
             // Validações de preenchimento
             if (produtos.Invalid)

@@ -15,7 +15,7 @@ namespace api.mstiEFD.SDKcsharp.Tests.Services
         }
 
         [Fact]
-        public async Task AtualizaFormula()
+        public async Task HealthCheck()
         {
             var resp = await _healthServices.HealthCheck();
             Assert.Equal(EHttpStatusCode.OK, resp.HttpStatusCode);

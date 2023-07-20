@@ -2,6 +2,7 @@
 using api.mstiEFD.SDKcsharp.Extensions;
 using api.mstiEFD.SDKcsharp.Services.Shared;
 using api.mstiEFD.SDKcsharp.ViewModels;
+using api.mstiEFD.SDKcsharp.ViewModels.NotaFiscal;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -30,6 +31,8 @@ namespace api.mstiEFD.SDKcsharp.Services
                     .WithStatusCode(EHttpStatusCode.BadRequest)
                     .WithMessage(EfdResources.NotaFiscalInvalida);
             }
+
+            notaFiscal.ExecutaValidacoes();
 
             // Validações de preenchimento
             if (notaFiscal.Invalid)

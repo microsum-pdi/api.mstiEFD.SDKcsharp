@@ -70,7 +70,7 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
             }
         }
 
-        private void ExecutaValidacoes()
+        public void ExecutaValidacoes()
         {
             if (DataFinal < DataInicial)
             {
