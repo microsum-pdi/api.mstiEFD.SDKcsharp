@@ -20,8 +20,10 @@ namespace api.mstiEFD.SDKcsharp.Services.Shared
         /// </summary>
         /// <param name="texto"></param>
         /// <returns></returns>
-        public static string RemoveAcentos(string texto)
+        public static string RemoveAcentos(string? texto)
         {
+            if (string.IsNullOrEmpty(texto)) return "";
+
             StringBuilder sbReturn = new();
             var arrayText = texto.Normalize(NormalizationForm.FormD).ToCharArray();
             foreach (char letter in arrayText)

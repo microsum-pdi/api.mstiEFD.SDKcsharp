@@ -6,8 +6,8 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
 {
     [JsonSchemaExtensionData("example",
   @"{
-      ""DataInicial"": ""2023-05-01"",
-      ""DataFinal"": ""2023-05-31"",
+      ""DataInicial"": ""2023-07-01"",
+      ""DataFinal"": ""2023-07-31"",
       ""TipoAtividade"": ""0"",
       ""ClassificacaoContribuinte"": ""09"",
       ""Perfil"": ""A"",
