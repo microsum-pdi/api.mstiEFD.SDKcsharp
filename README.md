@@ -109,9 +109,50 @@ EfdResultVM<string> resp = await new EfdSdkServices(
 
 ------------
 
-#### 6 - Geração das escriturações
+#### 6 - Consulta de movimentações enviadas para a API
 
-**6.1- EFD ICMS IPI (SPED Fiscal)**
+Estas operações permitem consultar os dados recebidos pela API:
+
+**6.1- Notas Fiscais (NF-e e NFC-e)**
+
+Exemplo de requisição:
+
+```csharp
+int limit = 100;
+int skip = 0;
+string filter = "texto da pesquisa";
+
+EfdResultVM<NotaFiscalVM> respNotaFiscal = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK()
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api"
+    }
+).EfdNotasFiscaisServices().Pesquisar(limit, skip, filter);
+```
+
+**6.2- Cadastro de produtos**
+
+Exemplo de requisição:
+
+```csharp
+int limit = 100;
+int skip = 0;
+string filter = "texto da pesquisa";
+
+EfdResultVM<EstoqueVM> respNotaFiscal = await new EfdSdkServices(
+    new EfdConfigAmbienteSDK()
+    {
+        Token = "token_da empresa",
+        URL = "url_da_ami_api"
+    }
+).EfdInventarioServices().Pesquisar(limit, skip, filter);```
+
+------------
+
+#### 7 - Geração das escriturações
+
+**7.1- EFD ICMS IPI (SPED Fiscal)**
 
 Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do ICMS / IPI.
 
@@ -127,7 +168,7 @@ string respEfdIcmsIpi = await new EfdSdkServices(
 );
 ```
 
-**6.2- EFD Contribuições (SPED PIS/COFINS)**
+**7.2- EFD Contribuições (SPED PIS/COFINS)**
 
 Este é o serviço que deve ser acionado para geração do arquivo txt, referente à escrituração do PIS / COFINS.
 

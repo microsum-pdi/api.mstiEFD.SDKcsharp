@@ -75,5 +75,42 @@ namespace api.mstiEFD.SDKcsharp.Services
                 throw new Exception(DetalheErro);
             }
         }
+
+        /// <summary>
+        /// Pesquisa de produtos cadastrados
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="skip"></param>
+        /// <param name="filtro"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<EfdResultVM<EstoqueVM>> Pesquisar(int limit, int skip, string filtro)
+        {
+            string url = configAmbienteSDK.URL + "/api/estoque?limit=" + limit + "&skip=" + skip + "&filter=" + filtro + "";
+
+            try
+            {
+                var response = await ExecutaGet(url);
+                if (response != null)
+                {
+                    var resultado = JsonConvert.DeserializeObject<EfdResultVM<EstoqueVM>>(await response.Content.ReadAsStringAsync());
+                    return resultado;
+                }
+                else
+                {
+                    return new EfdResultVM<EstoqueVM>()
+                        .WithStatusCode(EHttpStatusCode.BadRequest)
+                        .WithMessage(EfdResources.EstoqueErroAoPesquisar);
+                }
+            }
+            catch (Exception ex)
+            {
+                string DetalheErro = "";
+                DetalheErro += EfdResources.EstoqueErroAoPesquisar + " - " + ex.GetAllInnerExceptionMessage() + "\n";
+                DetalheErro += "Url: " + url + "\n";
+
+                throw new Exception(DetalheErro);
+            }
+        }
     }
 }

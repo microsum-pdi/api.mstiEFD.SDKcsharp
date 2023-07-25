@@ -46,7 +46,7 @@ namespace api.mstiEFD.SDKcsharp.ViewModels.Estoque
         /// <summary>
         /// COD_PART - Código do participante (campo 02 do Registro 0150): - proprietário/possuidor que não seja o informante do arquivo
         /// </summary>
-        public ParticipanteVM Proprietario { get; set; }
+        public ParticipanteVM? Proprietario { get; set; }
 
         /// <summary> 
         /// TIPO_ITEM - Tipo do item – Atividades Industriais, Comerciais e Serviços: 

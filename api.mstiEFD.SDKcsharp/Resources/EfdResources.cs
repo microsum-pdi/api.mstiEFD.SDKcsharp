@@ -10,6 +10,7 @@
         public const string EstoqueTipoInvalido = "O tipo do produto deve conter um dos seguintes valores: ";
         public const string EstoqueIndicadorPropriedadeInvalido = "O indicador de propriedade do produto deve conter um dos seguintes valores: ";
         public const string EstoqueErroAoSalvarNoBanco = "Erro ao salvar estoque dos produtos no banco de dados";
+        public const string EstoqueErroAoPesquisar = "Erro ao pesquisar produtos";
 
         //Configurações arquivo EFD        
         public const string DataFinalMenorQueDataInicial = "A data final deve ser superior à data inicial";
@@ -49,6 +50,7 @@
         //Mensagens das operações com a nota fiscal
         public const string NotaFiscalInvalida = "Deve ser enviado um objeto no formato [NotaFiscalVM]";
         public const string NotaFiscalErroAoSalvarNoBanco = "Erro ao salvar nova fiscal no banco de dados";
+        public const string NotaFiscalErroAoPesquisarNotasFiscais = "Erro ao pesquisar notas fiscais";
         public const string NotaFiscalOperacaoInvalida = "A operação deve conter um dos seguintes valores: ";
         public const string NotaFiscalTipoEmissaoInvalido = "O tipo de emissão deve conter um dos seguintes valores: ";
         public const string NotaFiscalFinalidadeInvalida = "A finalidade da emissão deve conter um dos seguintes valores: ";

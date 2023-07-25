@@ -1,6 +1,7 @@
 ﻿using api.mstiEFD.SDKcsharp.Services;
 using api.mstiEFD.SDKcsharp.ViewModels;
 using api.mstiEFD.SDKcsharp.ViewModels.Estoque;
+using api.mstiEFD.SDKcsharp.ViewModels.NotaFiscal;
 
 namespace api.mstiEFD.SDKcsharp.Tests.Services
 {
@@ -118,6 +119,13 @@ namespace api.mstiEFD.SDKcsharp.Tests.Services
 
             EfdResultVM<string> resp = await _estoqueServices.Atualizar(estoqueVM);
 
+            Assert.Equal(resp.HttpStatusCode, Enums.EHttpStatusCode.OK);
+        }
+
+        [Fact]
+        public async Task DevePesquisarProdutos()
+        {
+            EfdResultVM<EstoqueVM> resp = await _estoqueServices.Pesquisar(10, 0, "");
             Assert.Equal(resp.HttpStatusCode, Enums.EHttpStatusCode.OK);
         }
     }

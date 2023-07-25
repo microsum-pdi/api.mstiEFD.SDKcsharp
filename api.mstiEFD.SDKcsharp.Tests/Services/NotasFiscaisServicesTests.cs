@@ -2,11 +2,6 @@
 using api.mstiEFD.SDKcsharp.Services;
 using api.mstiEFD.SDKcsharp.ViewModels;
 using api.mstiEFD.SDKcsharp.ViewModels.NotaFiscal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace api.mstiEFD.SDKcsharp.Tests.Services
 {
@@ -268,6 +263,13 @@ namespace api.mstiEFD.SDKcsharp.Tests.Services
 
             EfdResultVM<string> resp = await _notasFiscaisServices.Add(notaVM);
 
+            Assert.Equal(resp.HttpStatusCode, Enums.EHttpStatusCode.OK);
+        }
+
+        [Fact]
+        public async Task DevePesquisarNotasFiscais()
+        {
+            EfdResultVM<NotaFiscalVM> resp = await _notasFiscaisServices.Pesquisar(10, 0, "");
             Assert.Equal(resp.HttpStatusCode, Enums.EHttpStatusCode.OK);
         }
     }
