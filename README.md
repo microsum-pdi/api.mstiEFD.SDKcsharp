@@ -146,7 +146,8 @@ EfdResultVM<EstoqueVM> respNotaFiscal = await new EfdSdkServices(
         Token = "token_da empresa",
         URL = "url_da_ami_api"
     }
-).EfdInventarioServices().Pesquisar(limit, skip, filter);```
+).EfdInventarioServices().Pesquisar(limit, skip, filter);
+```
 
 ------------
 
