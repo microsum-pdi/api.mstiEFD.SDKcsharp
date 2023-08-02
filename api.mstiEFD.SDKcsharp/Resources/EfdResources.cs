@@ -109,6 +109,7 @@
 
         //Configuração da api.mstiEFD.Core
         public const string CaminhoApiMstiEFDCoreNaoConfigurado = "Necessário criar a configuração 'APIs:api.mstiEFD.Core:Host' no arquivo 'appsettings.json'";
+        public const string AmbienteDoClienteNaoConfigurado = "Necessário configurar dados de acesso ao banco de dados do cliente";
 
         //Geração arquivo EFD Contribuicoes
         public const string ErroAoSolicitarGeracaoEFDContribuicoes = "Erro ao solicitar geração do arquivo EFD Contribuições";
@@ -119,6 +120,6 @@
         //Health Check
         public const string ErroAoSolicitarAoAcessarServicoHealthCheck = "Erro ao acessar endpoint health check";
 
-        public const string NotaFiscalEnviadaParaAFila = "Nota fiscal enviada para a fila de processamento";
+        public const string NotaFiscalEnviadaParaAFila = "Nota fiscal enviada para a fila de processamento";        
     }
 }
