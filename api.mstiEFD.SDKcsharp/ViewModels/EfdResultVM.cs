@@ -116,13 +116,10 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
 
         public EfdResultVM<T> WithDatas(EfdMstiList<T> Dados)
         {
-            //Armazena os dados de paginação, para re-atribuí-los, logo abaixo
-            int Capacidade = Dados.Capacidade;
-
             Data.AddRange(Dados);
 
-            //Ao acionar o método AddRange(), o valor da propriedade "Capacidade" é perdido
-            Data.Capacidade = Capacidade;
+            //Repassando o parâmetro "Capacidade" do Array inserido na resposta do método
+            Data.Capacidade = Dados.Capacidade;
 
             AtualizaTotais();
 
