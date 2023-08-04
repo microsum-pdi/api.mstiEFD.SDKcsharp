@@ -1,4 +1,5 @@
 ﻿using api.mstiEFD.SDKcsharp.Enums;
+using api.mstiEFD.SDKcsharp.Models;
 using Newtonsoft.Json;
 
 namespace api.mstiEFD.SDKcsharp.ViewModels
@@ -43,14 +44,14 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
         /// <para>Mesmo quando for solicitado apenas um recurso, será devolvido em uma lista</para> 
         /// </summary> 
         [JsonProperty(Order = 4)]
-        public List<T> Data { get; private set; }
+        public EfdMstiList<T> Data { get; private set; }
 
         #endregion
 
         public EfdResultVM()
         {
             HttpStatusCode = EHttpStatusCode.OK;
-            Data = new List<T>();
+            Data = new EfdMstiList<T>();
             Messages = new List<string>();
         }
 
@@ -113,15 +114,15 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
             return this;
         }
 
-        public EfdResultVM<T> WithDatas(List<T> Dados)
+        public EfdResultVM<T> WithDatas(EfdMstiList<T> Dados)
         {
             //Armazena os dados de paginação, para re-atribuí-los, logo abaixo
-            int Capacidade = Dados.Capacity;
+            int Capacidade = Dados.Capacidade;
 
             Data.AddRange(Dados);
 
-            //Ao acionar o método AddRange(), o valor da propriedade "Capacity" é perdido
-            Data.Capacity = Capacidade;
+            //Ao acionar o método AddRange(), o valor da propriedade "Capacidade" é perdido
+            Data.Capacidade = Capacidade;
 
             AtualizaTotais();
 
@@ -131,7 +132,7 @@ namespace api.mstiEFD.SDKcsharp.ViewModels
         private void AtualizaTotais()
         {
             Count = Data.Count;
-            Total = Data.Capacity;
+            Total = Data.Capacidade;
         }
         #endregion
     }
