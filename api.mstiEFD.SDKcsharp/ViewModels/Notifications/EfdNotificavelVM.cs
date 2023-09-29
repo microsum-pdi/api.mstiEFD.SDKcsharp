@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace api.mstiEFD.SDKcsharp.ViewModels.Notifications
 {
     [ApiExplorerSettings(IgnoreApi = true)]
-    [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+    [JsonObject(MemberSerialization = MemberSerialization.OptOut)]
     public class EfdNotificavelVM :  Notifiable<Notification>
     {
         [IgnoreDataMember]
